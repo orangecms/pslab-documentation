@@ -29,7 +29,14 @@ master_doc = 'index'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['m2rr', 'sphinx_material']
+extensions = ['recommonmark', 'sphinx_material']
+
+# see https://www.sphinx-doc.org/en/master/usage/markdown.html
+#   source_suffix = {
+#       '.rst': 'restructuredtext',
+#       '.txt': 'markdown',
+#       '.md': 'markdown',
+#   }
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -71,3 +78,18 @@ html_theme_options = {
 html_css_files = [
      'css/styles.css'
 ]
+
+# The below settings are adapted from coreboot's setup. With or without, Sphinx
+# is not generating a ToC tree though. :(
+
+enable_auto_toc_tree = True
+
+def setup(app):
+    from recommonmark.transform import AutoStructify
+    app.add_config_value('recommonmark_config', {
+        'enable_auto_toc_tree': True,
+        'enable_auto_doc_ref': False, # broken in Sphinx 1.6+
+        'enable_eval_rst': True,
+        'url_resolver': lambda url: '/' + url
+    }, True)
+    app.add_transform(AutoStructify)
