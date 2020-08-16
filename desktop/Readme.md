@@ -44,7 +44,7 @@ Depending on your operating system, the executable will be in a directory under
 ## Using the app
 
 Note: In order to use an actual PSLab device, you will need to have the [Python
-library](../python-library) installed.
+library](../python-library/index) installed.
 
 First *connect the PSLab board and your PC with a USB cable*. Then open the app.
 

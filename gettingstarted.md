@@ -11,8 +11,8 @@ on PCs.
 
 Installation:
 
-- [Android](android/Readme.html)
-- [PC](desktop/Readme.html)
+- [Android](android/Readme)
+- [PC](desktop/Readme)
 
 ## Connecting the PSLab
 
